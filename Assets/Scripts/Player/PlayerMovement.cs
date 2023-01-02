@@ -35,7 +35,10 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Move(Vector3 input)
 	{
-		direction = input.normalized;
+		if (input.sqrMagnitude > 0)
+		{
+			direction = input.normalized;
+		}
 		velocity = VelocityCalculator(input);
 	}
 
